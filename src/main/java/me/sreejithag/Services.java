@@ -18,7 +18,6 @@ public class Services {
 				JSONObject resultJSON = (JSONObject) parser.parse(result);
 				JSONObject resultRates = (JSONObject) resultJSON.get("rates");  
 				double res =  (double) resultRates.get(to);
-				System.out.println(res);
 				return  res;
 			}
 			catch(Exception e) {
@@ -29,6 +28,11 @@ public class Services {
 		return 0;
 		
 		
+	}
+
+	public double convert(Double amount, String from, String to) {
+		double rate = getConvertionRate(from, to);
+		return rate*amount;
 	}
 
 }

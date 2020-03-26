@@ -25,7 +25,21 @@ public class RateApiApplication {
 		Services service = new Services();
 		double res = service.getConvertionRate(from, to);
 		if(res !=0) {
-			return String.valueOf(res);
+			return String.valueOf(Math.round(res*100)/100.00);
+		}
+		else {
+			return "Error Invalid currency code";
+		}
+	}
+	
+	
+	@RequestMapping(value="/convert")
+	public String convert(@RequestParam(value = "amount") Double amount,@RequestParam(value = "from") String from, @RequestParam(value = "to") String to) {
+		
+		Services service = new Services();
+		double res = service.convert(amount,from, to);
+		if(res !=0) {
+			return String.valueOf(Math.round(res*100)/100.00);
 		}
 		else {
 			return "Error Invalid currency code";
