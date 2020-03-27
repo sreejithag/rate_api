@@ -34,6 +34,7 @@ public class Services {
 	public double convert(Double amount, String from, String to) {
 		if(amount != null) {
 			double rate = getConvertionRate(from, to);
+			System.out.println(rate);
 			return rate*amount;
 		}
 		else {
