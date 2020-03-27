@@ -43,7 +43,7 @@ public class RateApiApplication {
 	@RequestMapping(value="/convert")
 	public String convert(@RequestParam(value = "amount") Double amount,@RequestParam(value = "from") String from, @RequestParam(value = "to") String to) throws IllegalAccessException {
 		
-		if( null == amount || null == from || null == to ) {
+		if(null == from || null == to ) {
 			throw new IllegalAccessException();
 		}
 		
@@ -54,7 +54,7 @@ public class RateApiApplication {
 				return String.valueOf(Math.round(res*100)/100.00);
 			}
 			else {
-				return "Error Invalid currency code";
+				return "Error Invalid currency code or amount is null";
 			}
 		}
 	}

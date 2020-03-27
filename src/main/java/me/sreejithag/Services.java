@@ -2,6 +2,7 @@ package me.sreejithag;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -31,8 +32,13 @@ public class Services {
 	}
 
 	public double convert(Double amount, String from, String to) {
-		double rate = getConvertionRate(from, to);
-		return rate*amount;
+		if(amount != null) {
+			double rate = getConvertionRate(from, to);
+			return rate*amount;
+		}
+		else {
+				return 0;
+		}
 	}
 
 }
