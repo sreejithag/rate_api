@@ -11,7 +11,7 @@ public class Services {
 		if((from.length()==3)&&(to.length()==3)) {
 			from = from.toUpperCase();
 			to = to.toUpperCase();
-			final String url = "https://api.ratesapi.io/api/latest?symbols="+to+"&base="+from;
+			final String url = "http://api.ratesapi.io/api/latest?symbols="+to+"&base="+from;
 			RestTemplate restTemplate = new RestTemplate();
 			try {
 				String result = restTemplate.getForObject(url,String.class);
