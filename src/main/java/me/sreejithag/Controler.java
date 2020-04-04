@@ -14,14 +14,14 @@ public class Controler {
 	
 	@GetMapping("/convertionrate/{from}/{to}")
 	public <optional> Double getConvertionRate(@PathVariable("from") String from, @PathVariable("to") String to){
-		CurrencyCovert currencyCovert = new CurrencyCovert(from, to);
+		CurrencyCoverter currencyCovert = new CurrencyCoverter(from, to);
 		return currencyCovert.getRate();
 	}
 	
 	
 	@GetMapping(value="/convert/{from}/{to}/{amount}")
 	public double convert(@PathVariable("from") String from,@PathVariable("to") String to, @PathVariable("amount") double amount){
-		CurrencyCovert currencyCovert = new CurrencyCovert(from, to);
+		CurrencyCoverter currencyCovert = new CurrencyCoverter(from, to);
 		return currencyCovert.convert(amount);
 	}
 	
