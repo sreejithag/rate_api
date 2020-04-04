@@ -1,8 +1,5 @@
 package me.sreejithag;
 
-
-
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.http.HttpEntity;
@@ -25,11 +22,9 @@ public class CurrencyCoverter {
 		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
 		
 		try {
-			Object response = restTemplate.exchange(url, HttpMethod.GET,entity,Object.class);
-			System.out.println(response);
-			String result = restTemplate.getForObject(url,String.class);
+			HttpEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
 			JSONParser parser = new JSONParser();
-			JSONObject resultJSON = (JSONObject) parser.parse(result);
+			JSONObject resultJSON = (JSONObject) parser.parse(response.getBody());
 			JSONObject resultRates = (JSONObject) resultJSON.get("rates");  
 			rate =  (double) resultRates.get(to);
 		}
@@ -39,9 +34,9 @@ public class CurrencyCoverter {
 	}
 	
 	public double convert(double amount) {
-		return this.rate*amount;
+		return Math.round(this.rate*amount*100)/100.00;
 	}
 	public double getRate() {
-		return this.rate;
+		return Math.round(this.rate*100)/100.00;
 	}
 }
