@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.ecom.entity","l":"Address"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.ecom","l":"DemoApplication"},{"p":"com.ecom.entity","l":"Inventory"},{"p":"com.ecom.entity","l":"Person"},{"p":"com.ecom.controller","l":"PersonController"},{"p":"com.ecom.dao","l":"PersonRepo"},{"p":"com.ecom.entity","l":"Product"}]
