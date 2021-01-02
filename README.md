@@ -1,3 +1,2 @@
 # rate_api
-Sample Spring boot rest api 
-internally uses https://api.ratesapi.io/
+Spring boot wrapper for https://api.ratesapi.io/
